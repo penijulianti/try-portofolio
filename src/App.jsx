@@ -1,24 +1,26 @@
-import About from "./komponen/About"
 import Navbar from "./komponen/Navbar"
-import Portofolio from "./komponen/Portofolio"
-// import SocialLinks from "./komponen/Social"
 import { Outlet } from 'react-router-dom'
 import Social from "./komponen/Social"
-// import './index.css'
+import { createContext, useState } from "react"
+
+export const TemaContext = createContext({
+  tema: null,
+  setTema: () => {},
+})
 
 
 function App() {
+  const [tema,setTema] = useState("dark");
+
   return(
-    <div>
+    <TemaContext.Provider value={{tema,setTema}}>
       <Navbar/>
+    <div className={tema === "light" ? "bg-gradient-to-r from-pink-400 to-pink-700" : "bg-gradient-to-b from-gray-800 to-black text-pink-400"}>
       <Outlet/>
       <Social/>
-      {/* <Portofolio/>
-      <About/> */}
     </div>
+    </TemaContext.Provider>
     )
-    
-  
 }
 
 export default App

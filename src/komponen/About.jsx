@@ -1,16 +1,18 @@
+import { useContext } from "react"
+import { TemaContext } from "../App"
 
 
 export default function About(){
+  const {tema} = useContext(TemaContext)
     return(
+      <div  className={tema === "light" ? "bg-gradient-to-r from-pink-400 to-pink-700 text-gray-800" : "bg-gradient-to-b from-gray-800 to-black text-pink-500"}>
         <div
         name="about"
-        className="w-full h-screen bg-gradient-to-b from-gray-800 to-black text-white"
+        className="w-full h-screen"
       >
         <div className="max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full">
           <div className="pb-8">
-            <p className="text-4xl font-bold inline border-b-4 border-gray-500">
-              About
-            </p>
+            <p className="text-4xl font-bold inline border-b-4 border-gray-800">About</p>
           </div>
   
           <p className="text-xl mt-20">
@@ -20,9 +22,8 @@ export default function About(){
           </p>
   
           <br />
-  
-
         </div>
+      </div>
       </div>
     )
     

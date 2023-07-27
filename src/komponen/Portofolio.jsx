@@ -1,4 +1,6 @@
+import { useContext } from "react"
 import "../index.css"
+import { TemaContext } from "../App"
 
 export default function Portofolio(){
     const project=[
@@ -17,16 +19,16 @@ export default function Portofolio(){
             link: "https://github.com/penijulianti",
         }
     ]
+    const {tema} = useContext(TemaContext)
     return(
-        <div  className="h-screen w-full bg-gradient-to-b from-gray-800 to-black left-6">
-            <div className="  text-pink-400 ">
-                <div className="fixed top-[15%] left-[25%]" >
+<div  className={tema === "light" ? "bg-gradient-to-r from-pink-400 to-pink-700 text-black" : "bg-gradient-to-b from-gray-800 to-black text-pink-400"}>
+        <div  className="h-screen w-full left-6">
+                <div className="relative top-[15%] left-[25%]" >
                     <h1 className="font-extrabold text-6xl">Portofolio</h1>
                     <p>Check some of my work right here</p>
                
 
                 <div id="wrapper" className="">
-                    
                         {project.map(({id, title,foto,desc, link}) =>(
                             <div key={id} id="card">
                                 <img src={foto} alt="Gagal" />
@@ -37,15 +39,17 @@ export default function Portofolio(){
                                         target="_blank"
                                         rel="noreferrer"
                                     >
-                                        <button className="text-pink-50 w-fit px-6 py-3 my-2 flex
-                        items-center rounded-md bg-gradient-to-r from-pink-200 to-pink-500 cursor-pointer">Check it out!</button>
+                                    <div className={tema === "light" ? "bg-gradient-to-r from-pink-400 to-pink-700 text-black rounded-md" : "bg-gradient-to-b from-gray-800 to-black text-pink-400 rounded-md"}>
+                                    <button className=" w-fit px-4 py-3 my-2 flex
+                                    items-center  cursor-pointer">Check it out!</button>
+                                    </div>
                                     </a>
                                 </div>
                             </div>
                         ))}
                 </div>
                 </div>
-            </div>
+        </div>
         </div>
     )
 }
