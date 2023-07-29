@@ -2,11 +2,12 @@ import {BsArrowRightCircleFill} from "react-icons/bs"
 import peni from "../assets/peni.jpg"
 import { NavLink } from "react-router-dom"
 import { useContext } from "react"
-import { TemaContext } from "../App"
+import { LangContext, TemaContext, bahasa } from "../App"
 
 
 export default function Home() {
     const {tema} = useContext(TemaContext)
+    const {lang}= useContext(LangContext)
     return(
         <>
     <div  className={tema === "light" ? "bg-gradient-to-r from-pink-300 to-pink-500 text-gray-800" : "bg-gradient-to-b from-gray-800 to-black text-pink-500"}>
@@ -14,10 +15,8 @@ export default function Home() {
             <div className="max-w-screen-lg mx-auto flex flex-col items-center
             justify-center h-full px-4 md:flex-row ">
                 <div className="flex flex-col justify-center h-full">
-                    <h2 className="text-2xl sm:text-5xl font-bold text">Hello, I am  a Junior Development Peni Julianti</h2>
-                    <p className="py-4 max-w-md">
-                        I will be learn to Development
-                    </p>
+                    <h2 className="text-2xl sm:text-5xl font-bold text">{bahasa[lang].hai}</h2>
+                    <p className="py-4 max-w-md">{bahasa[lang].stu}</p>
 
                     <div>
                         <NavLink to='/port'

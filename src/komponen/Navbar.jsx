@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import {FaBars, FaTimes} from "react-icons/fa"
 import { Link, NavLink } from "react-router-dom";
-import { TemaContext } from "../App";
+import { LangContext, TemaContext, bahasa } from "../App";
 import Tema from "./Tema";
 
 
@@ -10,6 +10,7 @@ import Tema from "./Tema";
 export default function Navbar(){
     const [nav, setNav] = useState(false);
     const {tema} = useContext(TemaContext)
+    const {lang,setLang} =useContext(LangContext)
     return(
         <>
         {/* <div className=>ndksndksn */}
@@ -23,12 +24,15 @@ export default function Navbar(){
 
             <ul className="hidden md:flex">
             <NavLink to="/" className="px-4 cursor-pointer capitalize font-medium
-                hover:scale-105 duration-200">Home</NavLink>
+                hover:scale-105 duration-200">{bahasa[lang].home}</NavLink>
             <NavLink to="/port" className="px-4 cursor-pointer capitalize font-medium
-                hover:scale-105 duration-200">Portofolio</NavLink>
+                hover:scale-105 duration-200">{bahasa[lang].port}</NavLink>
             <NavLink to="/about" className="px-4 cursor-pointer capitalize font-medium
-                hover:scale-105 duration-200">About</NavLink>
+                hover:scale-105 duration-200">{bahasa[lang].ab}</NavLink>
                 <Tema/>
+                <button className="ml-4" onClick={() => setLang("en")}>English</button>
+                <button className="ml-4"onClick={() => setLang("id")}>Indonesia</button>
+
             </ul>
 
             <div onClick={() => setNav(!nav)} className="cursor-pointer pr-4 z-10 md:hidden">
