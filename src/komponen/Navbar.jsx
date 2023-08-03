@@ -3,6 +3,7 @@ import {FaBars, FaTimes} from "react-icons/fa"
 import { Link, NavLink } from "react-router-dom";
 import { LangContext, TemaContext, bahasa } from "../App";
 import Tema from "./Tema";
+import {BiHomeHeart} from "react-icons/bi"
 
 
 
@@ -24,7 +25,7 @@ export default function Navbar(){
 
             <ul className="hidden md:flex">
             <NavLink to="/" className="px-4 cursor-pointer capitalize font-medium
-                hover:scale-105 duration-200">{bahasa[lang].home}</NavLink>
+                hover:scale-105 duration-200 rounded-xl">{bahasa[lang].home}</NavLink>
             <NavLink to="/port" className="px-4 cursor-pointer capitalize font-medium
                 hover:scale-105 duration-200">{bahasa[lang].port}</NavLink>
             <NavLink to="/about" className="px-4 cursor-pointer capitalize font-medium
